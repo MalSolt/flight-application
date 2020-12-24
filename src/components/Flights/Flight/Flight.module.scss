@@ -1,0 +1,62 @@
+.flight {
+  display: flex;
+  align-items: flex-end;
+  width: 580px;
+  padding: 20px 5px;
+  border-bottom: 1px solid #87878738;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  background: rgba(0, 119, 255, 0.05);
+}
+
+.description {
+  margin-left: 24px;
+  .location {
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: -0.4px;
+    color: #424242;
+    img {
+      margin: 0 5px;
+    }
+  }
+  .date,
+  .carrier {
+    font-size: 14px;
+    color: #878787;
+  }
+
+  .date {
+    margin: 7px 0;
+    img {
+      margin: 4px 5px;
+    }
+  }
+}
+
+.priceBlock {
+  margin-left: auto;
+  .heart {
+    margin-bottom: 20px;
+    width: 25px;
+    margin-left: auto;
+  }
+  .price {
+    font-size: 17px;
+    letter-spacing: -0.4px;
+    color: #424242;
+    span {
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.1px;
+      color: #878787;
+    }
+  }
+}

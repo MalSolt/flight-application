@@ -1,0 +1,80 @@
+.authPage {
+  background-image: url('../../img/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 25vh;
+}
+
+.auth {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  color: #424242;
+  width: 410px;
+  margin: 0 auto;
+  padding: 53px 32px 37px;
+  h1 {
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 7px;
+  }
+  button {
+    margin-top: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    width: 116px;
+    height: 34px;
+    background: linear-gradient(104.34deg, #3c4cad -15.34%, #00c3ff 145.95%);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    &:hover {
+      box-shadow: 0px 0px 4px #99a0a3;
+    }
+    &:active {
+      border: 1.5px solid rgba(29, 138, 216, 0.3);
+    }
+  }
+}
+
+.errorLabel {
+  color: #eb1717;
+}
+
+.field {
+  width: 345px;
+  height: 34px;
+  border: 1px solid #c9cacc;
+  border-radius: 4px;
+}
+
+.fieldError {
+  width: 345px;
+  height: 34px;
+  border: 1px solid #eb1717;
+  border-radius: 4px;
+}
+
+.error {
+  font-weight: 300;
+  font-size: 12px;
+  color: #eb1717;
+  margin-top: 5px;
+}
