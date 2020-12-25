@@ -9,9 +9,11 @@ const saga = createSagaMiddleware()
 
 const rootReducer = combineReducers({ auth: authReducer, slider: sliderReducer, flights: flightsReducer })
 
-export const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(saga), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-)
+const composeSetup =
+  process.env.NODE_ENV !== 'production' && typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose
+
+export const store = createStore(rootReducer, composeSetup(applyMiddleware(saga)))
 
 saga.run(sagaWatcher)
