@@ -6,9 +6,10 @@ let initialState = {
   slides: [one, two, three, one, two, three],
 }
 
-export const sliderReducer = (state = initialState, action) => {
+ const sliderReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state
   }
 }
+ export default sliderReducer

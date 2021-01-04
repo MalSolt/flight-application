@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
 }
 
-export const flightsReducer = (state = initialState, action) => {
+const flightsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_FLIGHTS:
       return {
@@ -53,3 +53,5 @@ export const showLoader = () => ({ type: SHOW_LOADER })
 export const hideLoader = () => ({ type: HIDE_LOADER })
 
 export const toggleSelected = id => ({ type: TOGGLE_SELECTED, payload: { id } })
+
+export default flightsReducer

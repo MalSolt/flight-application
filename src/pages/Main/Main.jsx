@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Flights, Loader, Logout, Slider } from '../../components'
 import arrow from '../../img/arrow.svg'
+import logo from '../../img/logo.png'
 import { getFlights } from '../../redux/flightsReducer/flightsRegucer'
+import { getIsAuthorized, getIsLoading } from '../../redux/selectors'
 import s from './Main.module.scss'
 
 export const Main = () => {
   const dispatch = useDispatch()
-  const [filterDate, setFilterDate] = useState(null)
-  const isLoading = useSelector(state => state.flights.isLoading)
-  const isAuthorized = useSelector(state => state.auth.isAuthorized)
+  const isLoading = useSelector(getIsLoading)
+  const isAuthorized = useSelector(getIsAuthorized)
 
   useEffect(() => {
     dispatch(getFlights())
@@ -18,20 +19,19 @@ export const Main = () => {
 
   if (!isAuthorized) return <Redirect to='/auth' />
   return (
-    <div className={s.main}>
+    <>
       <Logout />
       <div className={s.container}>
         <header className={s.header}>
           <div>
-            Вылеты <img src={arrow} alt='arrow' /> SVO -JFK
+            Вылеты <img className={s.arrow} src={arrow} alt='arrow' /> SVO - JFK
           </div>
-          <div>
-            <input type='date' value={filterDate} onChange={e => setFilterDate(e.target.value)} />
-          </div>
+          {/* <div>Aviasels</div> */}
+          <img className={s.logo} src={logo} alt='' />
         </header>
         <Slider />
-        {isLoading ? <Loader /> : <Flights filterDate={filterDate} />}
+        {isLoading ? <Loader /> : <Flights />}
       </div>
-    </div>
+    </>
   )
 }

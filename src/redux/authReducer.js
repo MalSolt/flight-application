@@ -4,7 +4,7 @@ let initialState = {
   isAuthorized: JSON.parse(localStorage.getItem('isAuthorized')),
 }
 
-export const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case IS_AUTH:
       localStorage.isAuthorized = action.payload.isAuthorized
@@ -21,3 +21,5 @@ export const isAuth = isAuthorized => ({
   type: IS_AUTH,
   payload: { isAuthorized },
 })
+
+export default authReducer

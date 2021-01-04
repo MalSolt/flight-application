@@ -1,19 +1,14 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import { authReducer } from './authReducer'
-import { sliderReducer } from './sliderReducer'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import auth from './authReducer'
+import slider from './sliderReducer'
 import createSagaMiddleware from 'redux-saga'
 import { sagaWatcher } from './flightsReducer/saga'
-import { flightsReducer } from './flightsReducer/flightsRegucer'
+import flights from './flightsReducer/flightsRegucer'
 
 const saga = createSagaMiddleware()
 
-const rootReducer = combineReducers({ auth: authReducer, slider: sliderReducer, flights: flightsReducer })
+const rootReducer = combineReducers({ auth, slider, flights })
 
-const composeSetup =
-  process.env.NODE_ENV !== 'production' && typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose
-
-export const store = createStore(rootReducer, composeSetup(applyMiddleware(saga)))
+export const store = createStore(rootReducer, applyMiddleware(saga))
 
 saga.run(sagaWatcher)

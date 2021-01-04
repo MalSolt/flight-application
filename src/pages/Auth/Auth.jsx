@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import * as Yup from 'yup'
 import { isAuth } from '../../redux/authReducer'
+import { getIsAuthorized } from '../../redux/selectors'
 import s from './Auth.module.scss'
 
 export const Auth = () => {
-  const isAuthorized = useSelector(state => state.auth.isAuthorized)
+  const isAuthorized = useSelector(getIsAuthorized)
   const dispatch = useDispatch()
   if (isAuthorized) return <Redirect to='/main' />
   return (

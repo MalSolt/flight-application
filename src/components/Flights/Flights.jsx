@@ -1,19 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { getFlights } from '../../redux/selectors'
 import { Flight } from './Flight/Flight'
 import s from './Flights.module.scss'
 
-export const Flights = ({ filterDate }) => {
-  const flights = useSelector(state => state.flights.flights)
+export const Flights = () => {
+  const flights = useSelector(getFlights)
   const selectedFlights = flights.filter(e => e.selected)
-
-  const filteringFlightsByDate = flights => {
-    return filterDate
-      ? flights.filter(e => e.date === filterDate).map(e => <Flight key={e.id} {...e} />)
-      : flights.map(e => <Flight key={e.id} {...e} />)
-  }
-
-  const filteredFlightsByDate = filteringFlightsByDate(flights)
 
   return (
     <div className={s.flightsBlock}>
@@ -21,7 +14,9 @@ export const Flights = ({ filterDate }) => {
         Добавлено в Избранное: <span>{selectedFlights.length}</span> рейсов
       </div>
       <div className={s.flights}>
-        {filteredFlightsByDate.length ? filteredFlightsByDate : <div className={s.notFlights}>В этот день нет рейсов...</div>}
+        {flights.map(e => (
+          <Flight key={e.id} {...e} />
+        ))}
       </div>
     </div>
   )
