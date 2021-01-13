@@ -1,5 +1,0 @@
-export const SET_FLIGHTS = 'SET_FLIGHTS'
-export const GET_FLIGHTS = 'GET_FLIGHTS'
-export const SHOW_LOADER = 'SHOW_LOADER'
-export const HIDE_LOADER = 'HIDE_LOADER'
-export const TOGGLE_SELECTED = 'TOGGLE_SELECTED'
